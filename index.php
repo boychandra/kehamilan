@@ -1,7 +1,5 @@
 <?php 
-//require_once"konmysqli.php";
-$nama_user="";
-$usia_kandungan=0;
+
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Process only when method is POST
@@ -12,24 +10,20 @@ if($method == 'POST'){
 	$text = $json->result->parameters->text;
 
 	switch ($text) {
-		case 'hai':
-			$speech = "haii.. Silahkan masukan ID ya";
+		case 'hi':
+			$speech = "Hi, Nice to meet you";
 			break;
 
+		case 'bye':
+			$speech = "Bye, good night";
+			break;
+
+		case 'anything':
+			$speech = "Yes, you can type anything here.";
+			break;
 		
 		default:
-
-//		$sql="select nama_user, usia_kandungan from `$tbuser` where `id_user`='$text'";
-//		if(getJum($conn,$sql)>0){
-//			$d=getField($conn,$sql);
-//				$nama_user=$d["nama_user"];
-//				$usia_kandungan=$d["usia_kandungan"];
-//		$speech = "terima kasih bu $nama_user sudah melakukan login , saat ini usia kehamilan bunda sudah mencapai $usia_kandungan bulan. Ada yg bisa jos bantu ?";
-//		}
-//		else {
-		$speech = "Maaf perintah yang anda masukkan salah";			
-//		}
-
+			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	}
 
@@ -43,22 +37,5 @@ else
 {
 	echo "Method not allowed";
 }
-
-
-function getJum($conn,$sql){
-  $rs=$conn->query($sql);
-  $jum= $rs->num_rows;
-	$rs->free();
-	return $jum;
-}
-
-function getField($conn,$sql){
-	$rs=$conn->query($sql);
-	$rs->data_seek(0);
-	$d= $rs->fetch_assoc();
-	$rs->free();
-	return $d;
-}
-
 
 ?>
