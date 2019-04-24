@@ -1,5 +1,5 @@
 <?php 
-
+require_once"../konmysqli.php";
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Process only when method is POST
