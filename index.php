@@ -1,5 +1,5 @@
 <?php 
-require_once"konmysqli.php";
+//require_once"konmysqli.php";
 $nama_user="";
 $usia_kandungan=0;
 $method = $_SERVER['REQUEST_METHOD'];
@@ -19,16 +19,16 @@ if($method == 'POST'){
 		
 		default:
 
-		$sql="select nama_user, usia_kandungan from `$tbuser` where `id_user`='$text'";
-		if(getJum($conn,$sql)>0){
-			$d=getField($conn,$sql);
-				$nama_user=$d["nama_user"];
-				$usia_kandungan=$d["usia_kandungan"];
-		$speech = "terima kasih bu $nama_user sudah melakukan login , saat ini usia kehamilan bunda sudah mencapai $usia_kandungan bulan. Ada yg bisa jos bantu ?";
-		}
-		else {
+//		$sql="select nama_user, usia_kandungan from `$tbuser` where `id_user`='$text'";
+//		if(getJum($conn,$sql)>0){
+//			$d=getField($conn,$sql);
+//				$nama_user=$d["nama_user"];
+//				$usia_kandungan=$d["usia_kandungan"];
+//		$speech = "terima kasih bu $nama_user sudah melakukan login , saat ini usia kehamilan bunda sudah mencapai $usia_kandungan bulan. Ada yg bisa jos bantu ?";
+//		}
+//		else {
 		$speech = "Maaf perintah yang anda masukkan salah";			
-		}
+//		}
 
 			break;
 	}
